@@ -1947,6 +1947,25 @@ namespace karto
    * Gets all the processed scans
    * @return all scans
    */
+  const LocalizedRangeScanVector Mapper::GetScansById(const Name& rSensorName, std::vector<kt_int32s> scan_indices) const
+  {
+    LocalizedRangeScanVector allScans;
+
+    if (m_pMapperSensorManager != NULL)
+    {
+      for(int i=0; i < scan_indices.size(); i++)
+      {
+        allScans.push_back(m_pMapperSensorManager->GetScan(rSensorName, scan_indices[i]));
+      }
+    }
+
+    return allScans;
+  }
+  
+  /**
+   * Gets all the processed scans
+   * @return all scans
+   */
   const LocalizedRangeScanVector Mapper::GetAllProcessedScans() const
   {
     LocalizedRangeScanVector allScans;

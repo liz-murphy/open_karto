@@ -1513,6 +1513,8 @@ namespace karto
      */
     virtual kt_bool Process(Object* pObject);
 
+    virtual const LocalizedRangeScanVector GetScansById(const Name& rSensorName, std::vector<kt_int32s> scan_indices) const;
+
     /**
      * Returns all processed scans added to the mapper.
      * NOTE: The returned scans have their corrected pose updated.
